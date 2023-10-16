@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 9h</title>
+  </head>
+  <body>
+    <input class="js-input" placeholder="Type something" onkeyup="onKeyUpFunction();">
+    <p class="js-p"></p>
+    <script> 
+      function onKeyUpFunction(){
+        document.querySelector(".js-p").innerHTML = document.querySelector(".js-input").value;
+      }
+    </script>
+  </body>
+</html>

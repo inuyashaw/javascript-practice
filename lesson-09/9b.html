@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 9b</title>
+  </head>
+  <body>
+    <button class="js-b" onclick="getButtonElement();">9a</button>
+   <!--
+    <button class="js-b2" onclick="setButtonElement();">9b</button>
+   -->
+   <button class="js-b2" onclick="setButtonElement();">9b</button>
+
+    <script>
+      function getButtonElement(){
+        const buttonElement = document.querySelector(".js-b");
+        console.log(buttonElement);
+      }
+      function setButtonElement(){
+        const buttonElement = document.querySelector(".js-b2");
+        console.log(buttonElement);
+        buttonElement.innerHTML = '9b done';
+      }
+    </script>
+  </body>
+</html>

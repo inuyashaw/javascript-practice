@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>javascript practice 8h</title>
+  </head>
+  <body>
+    <p>
+      <button onclick="strCombine(1);">1</button>
+      <button onclick="strCombine(2);">2</button>
+      <button onclick="strCombine(3);">3</button>
+      <button onclick="strCombine('+');">+</button>
+    </p>
+    <p>
+      <button onclick="strCombine(4);">4</button>
+      <button onclick="strCombine(5);">5</button>
+      <button onclick="strCombine(6);">6</button>
+      <button onclick="strCombine('-');">-</button>
+    </p>
+    <p>
+      <button onclick="strCombine(7);">7</button>
+      <button onclick="strCombine(8);">8</button>
+      <button onclick="strCombine(9);">9</button>
+      <button onclick="strCombine('*');">*</button>
+    </p>
+    <p>
+      <button onclick="strCombine(0);">0</button>
+      <button onclick="strCombine('.');">.</button>
+      <button onclick="calculateRes(globalString);">=</button>
+      <button onclick="strCombine('/');">/</button>
+    </p>
+    <p>
+      <button onclick="clearRes();">clear</button>
+    </p>
+    <script>
+      let globalString = localStorage.getItem('globalString');
+
+      if (!globalString){
+        globalString = '';
+      }
+
+      function strCombine(args){
+        globalString += args;
+        console.log(globalString);
+        localStorage.setItem('globalString', globalString);
+      }
+
+      function calculateRes(){
+        globalString = eval(globalString);
+        console.log(globalString);
+        localStorage.setItem('globalString', globalString);
+      }
+
+      function clearRes(){
+        globalString = '';
+        localStorage.setItem('globalString', '');
+      }
+    </script>
+  </body>
+</html> 

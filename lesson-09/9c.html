@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 9c</title>
+  </head>
+  <body>
+    <button class="js-b" onclick="clickRes('heads');">heads</button>
+    <button class="js-b2" onclick="clickRes('tails');">tails</button>
+    <p class="js-p"></p>
+
+    <script>
+      function clickRes(args){
+        const elementValue = document.querySelector('.js-p');
+        console.log(elementValue);
+        elementValue.innerHTML = `You chose: ${args}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 9d</title>
+  </head>
+  <body>
+    <input class="js-in" placeholder="Name">
+    <button class="js-b" onclick="displayElementValue();">Submit</button>
+    <p class="js-p"></p>
+    <script>
+        function displayElementValue(){
+          const elementValue = document.querySelector(".js-in");
+          //console.log(`You name is ${elementValue.value}`);
+          document.querySelector(".js-p").innerText = `You name is ${elementValue.value}`;
+        }
+    </script>
+  </body>
+</html>

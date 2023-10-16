@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="playGame('heads');">heads</button>
+    <button onclick="playGame('tails');">tails</button>
+    <script>
+      let resScore = JSON.parse(localStorage.getItem('resScore'));
+      if (!resScore){
+        resScore = {wins: 0, loses: 0};
+      }
+      
+      function playGame(guess){
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+        let res = (guess === result ? 'You win!' : 'You lose!');
+        if(res === 'You win!')
+        {
+          resScore.wins += 1;
+        }
+        else
+        {
+          resScore.loses += 1;
+        }
+        localStorage.setItem('resScore',JSON.stringify(resScore));
+        console.log(res);
+        console.log('t:', resScore);
+      }
+    </script>
+  </body>
+</html>
