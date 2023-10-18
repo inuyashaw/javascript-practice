@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 10g</title>
+    <style>
+      .css-playgame,
+      .css-music,
+      .css-tech {
+        background-color: rgb(228, 226, 226);
+        color:black;
+        font-size: 20px;
+        font-weight: 200;
+        padding: 10px 20px;
+        border: 1px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .css-playgame-on,
+      .css-music-on,
+      .css-tech-on{
+        background-color: black;
+        color:white;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="js-playgame css-playgame" onclick="onClickFunc('playgame');">Gaming</button>
+    <button class="js-music css-music" onclick="onClickFunc('music');">Music</button>
+    <button class="js-tech css-tech" onclick="onClickFunc('tech');">Tech</button>
+
+    <script>
+      function onClickFunc(args){
+        let element = document.querySelector(`.js-${args}`);
+        if (!element.classList.contains(`css-${args}-on`))
+        {
+          element.classList.add(`css-${args}-on`);
+          if(`${args}` !== 'playgame')
+          {
+            let element1 = document.querySelector(`.js-playgame`);
+            element1.classList.remove('css-playgame-on');
+          }
+          if(`${args}` !== 'music')
+          {
+            let element1 = document.querySelector(`.js-music`);
+            element1.classList.remove('css-music-on');
+          }
+          if(`${args}` !== 'tech')
+          {
+            let element1 = document.querySelector(`.js-tech`);
+            element1.classList.remove('css-tech-on');
+          }
+        }
+        else
+        {
+          element.classList.remove(`css-${args}-on`);
+        }
+      }
+    </script>
+  </body>
+</html>

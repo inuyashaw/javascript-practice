@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 10e</title>
+    <style>
+      .css-playgame,
+      .css-music,
+      .css-tech {
+        background-color: black;
+        color:white;
+        font-size: 20px;
+        font-weight: 200;
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .css-playgame-on,
+      .css-music-on,
+      .css-tech-on{
+        background-color: rgb(228, 226, 226);
+        color:black;
+        border: 1px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="js-playgame css-playgame" onclick="onClickFunc('playgame');">Gaming</button>
+    <button class="js-music css-music" onclick="onClickFunc('music');">Music</button>
+    <button class="js-tech css-tech" onclick="onClickFunc('tech');">Tech</button>
+
+    <script>
+      function onClickFunc(args){
+        let element = document.querySelector(`.js-${args}`);
+        if (!element.classList.contains(`css-${args}-on`))
+        {
+          element.classList.add(`css-${args}-on`);
+        }
+        else
+        {
+          element.classList.remove(`css-${args}-on`);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 10d</title>
+    <style>
+      .css-playgame {
+        background-color: black;
+        color:white;
+        font-size: 20px;
+        font-weight: 200;
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .css-playing {
+        background-color: rgb(228, 226, 226);
+        color:black;
+        border: 1px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="js-playgame css-playgame" onclick="onClickFunc();">gaming</button>
+    <script>
+      function onClickFunc(){
+        let element = document.querySelector(".js-playgame");
+        if (!element.classList.contains("css-playing"))
+        {
+          element.classList.add("css-playing");
+        }
+        else
+        {
+          element.classList.remove("css-playing");
+        }
+      }
+    </script>
+  </body>
+</html>
