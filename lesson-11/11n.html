@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 11n</title>
+  </head>
+  <body>
+    <script> 
+      function countWords(arr){
+        let objectElement = {};
+        if(Array.isArray(arr) && arr.length > 0)
+        {
+          for(let i = 0; i < arr.length; i++)
+          {
+            if(!objectElement[`${arr[i]}`])
+            {
+              objectElement[`${arr[i]}`] = 1;
+            }
+            else
+            {
+              objectElement[`${arr[i]}`] += 1;
+            }
+          }
+        }
+        return objectElement;
+      }
+
+      console.log(countWords(['hello', 1, 2, 2]));
+      console.log(countWords([]));
+    </script>
+  </body>
+</html>
