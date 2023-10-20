@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <button class="js-b1 css-b1" onclick="AddMess(); ">Add</button>
+    <button class="js-b2 css-b2" onclick="RemoveMess(); ">Remove</button>
+    <script>
+      let message = 0;
+      let id = undefined;
+      function AddMess()
+      {
+        message += 1;
+        if(message > 0 && id === undefined)
+        {
+          id = setInterval(changeElement, 1000);
+        }
+      }
+
+      function RemoveMess()
+      {
+        if(message >= 1)
+        {
+          message -= 1;
+        }
+        if(message === 0 && id !== undefined)
+        {
+            clearInterval(id);
+            id = undefined;
+            document.title = 'App';
+        }
+      }
+      function changeElement(){
+        if(message === 0)
+        {
+            clearInterval(id);
+            id = undefined;
+            document.title = 'App';
+        }
+        if(document.title === 'App')
+        {
+          document.title = `${message} New Messages`;
+        }
+        else
+        {
+          document.title = 'App';
+        }
+      }
+
+    </script>
+  </body>
+</html>

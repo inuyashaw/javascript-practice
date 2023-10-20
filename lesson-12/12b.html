@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 12b</title>
+  </head>
+  <body>
+    <script> 
+      const add = function(){ 
+        console.log(2+3);
+      };
+
+      function runTwice(param){
+        param();
+        param();
+      }
+
+      runTwice(add);
+      runTwice(function(){ console.log('12b');});
+    </script>
+  </body>
+</html>

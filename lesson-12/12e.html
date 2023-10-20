@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 12e</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <button class="js-button css-button" onclick="changeElement();">Add to cart</button>
+    <p class="js-p css-p"></p>
+    <script>
+      let idSet = undefined;
+      function changeElement(){
+        const getElement = document.querySelector(".js-p");
+        if(getElement.innerHTML === 'Added' && idSet !== undefined)
+        {
+          clearTimeout(idSet);
+        }
+        getElement.innerHTML = 'Added';
+        idSet = setTimeout(function(){ getElement.innerHTML = ''; }, 2000);
+      }
+    </script>
+  </body>
+</html>

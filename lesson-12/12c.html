@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>practice 12c</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <button class="js-button css-button" onclick="changeElement();">Start</button>
+    <script>
+
+      function changeElement(){
+        const getElement = document.querySelector(".js-button");
+        if(getElement.innerHTML === 'Start')
+        {
+          setTimeout(function(){ getElement.innerHTML = 'Finished!'; }, 1000);
+        }
+        else
+        {
+          setTimeout(function(){ getElement.innerHTML = 'Start'; }, 1000);
+        }
+      }
+    </script>
+  </body>
+</html>
