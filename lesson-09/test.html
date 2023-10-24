@@ -5,12 +5,43 @@
   </head>
   <body>
     <script>
-      test();
+      /*
+     const multiply = (param1, param2) =>  param1 * param2; ;
+      console.log(multiply(2, 3));
+      console.log(multiply(7, 10));
 
-      function test(){
-        console.log('hello');
-      };
+    const countPositive = (arr) => {
+      if(Array.isArray(arr))
+      {
+        let res = 0;
+        arr.forEach((value, index) => { 
+          if(value > 0)
+          {
+            res += 1;
+          }
+        });
+        return res;
+      }
+    };
 
+    console.log(countPositive([1, -3, 5]));
+    console.log(countPositive([-2, 3, -5, 7, 10]));
+*/
+    const addNum = (arr, num) =>  arr.map((value) => value + num);  
+     
+    console.log(addNum([1,2,3], 3));
+
+    const removeEgg = (arr) => 
+    {
+      let count = 0;
+      return  arr.filter(value => { 
+      if(value === 'Egg') {
+        count += 1;
+      }
+      return (value !== 'Egg') || (count > 2);
+    });
+  };
+    console.log(removeEgg(['Egg', 'Apple', 'Egg', 'Bear', 'Egg', 'Egg']));
     </script>
   </body>
 </html>
