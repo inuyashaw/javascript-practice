@@ -25,7 +25,7 @@ products.forEach((eachProduct) => {
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${eachProduct.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -41,7 +41,7 @@ products.forEach((eachProduct) => {
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart js-added-to-cart-${eachProduct.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -56,14 +56,20 @@ products.forEach((eachProduct) => {
 
 document.querySelector('.products-grid').innerHTML = productHTML;
 
+const addedSetTimedId = {};
+
 document.querySelectorAll('.add-to-cart-button').forEach((button) => {
   button.addEventListener('click', () => {
     //console.log(button.dataset);
+    let selectQuantity = document.querySelector(`.js-quantity-selector-${button.dataset.productId}`).value;
+    selectQuantity = Number(selectQuantity);
 
     let matchButton;
 
+    const {productId} = button.dataset;
+
     cart.forEach((item) => {
-      if(item.id === button.dataset.productId)
+      if(item.id === productId)
       {
         matchButton = item;
       }
@@ -71,17 +77,17 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => {
 
     if(matchButton)
     {
-      matchButton.quantity += 1;
+      matchButton.quantity += selectQuantity;
     }
     else
     {
       cart.push({
-        id : button.dataset.productId,
-        quantity : 1
+        productId,
+        quantity : selectQuantity
       })
     }
 
-    //console.log(cart);
+    console.log(cart);
     
     let cartQuantity = 0;
     cart.forEach((item) => {
@@ -89,5 +95,22 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => {
     });
 
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+
+    let addedCart = document.querySelector(`.js-added-to-cart-${productId}`);
+    addedCart.classList.add('added-to-cart-visible');
+
+    let SetId = addedSetTimedId[productId];
+
+    if(SetId)
+    {
+      clearTimeout(SetId);
+      addedSetTimedId[productId] = 0;
+    }
+    
+    SetId = setTimeout(() => { addedCart.classList.remove('added-to-cart-visible');}, 2000);
+    addedSetTimedId[productId] = SetId;
+
+    console.log(addedSetTimedId);
+
   });
 });
