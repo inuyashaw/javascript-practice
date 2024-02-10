@@ -33,3 +33,18 @@ export function addToCart(productId) {
 
   storageCart(cart);
 }
+
+export function deleteFromCart(deleteId) {
+    let newCart = [];
+    let cart = getCart();
+    cart.forEach((cartItem) => {
+      if (deleteId !== cartItem.productId) {
+        newCart.push(cartItem);
+      }
+      else {
+        console.log("deleteId:", deleteId);
+      }
+    });
+    cart = newCart;
+    storageCart(cart);
+}

@@ -1,5 +1,6 @@
-import { getCart, storageCart } from "../data/cart.js";
+import { getCart, storageCart, deleteFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
+
 
 let checkoutSumHTML = '';
 
@@ -107,17 +108,7 @@ document.querySelectorAll('.js-delete-quantity-link').forEach((deleteItem) => {
   deleteItem.addEventListener('click', () => {
 
     const deleteId = deleteItem.dataset.deleteId;
-    let newCart = [];
-    let cart = getCart();
-    cart.forEach((cartItem) => {
-      if (deleteId !== cartItem.productId) {
-        newCart.push(cartItem);
-      }
-      else {
-        console.log("deleteId:", deleteId);
-      }
-    });
-    storageCart(newCart);
+    deleteFromCart(deleteId);
     document.querySelector(`.item-${deleteId}`).remove();
 
     console.log("newList:", newCart);
